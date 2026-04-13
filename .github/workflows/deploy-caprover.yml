@@ -1,0 +1,22 @@
+# Repo secrets: CAPROVER_SERVER, CAPROVER_APP, CAPROVER_APP_TOKEN (CapRover app → Deployment).
+name: Deploy to CapRover
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create tarball
+        run: tar -czvf deploy.tar --exclude=.git .
+
+      - name: Deploy to CapRover
+        uses: caprover/deploy-from-github@v1.0.1
+        with:
+          server: ${{ secrets.CAPROVER_SERVER }}
+          app: ${{ secrets.CAPROVER_APP }}
+          token: ${{ secrets.CAPROVER_APP_TOKEN }}
