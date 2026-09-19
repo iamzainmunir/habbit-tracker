@@ -64,10 +64,9 @@ export default function AuthModal({ isOpen, onClose }) {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             transition={{ type: 'spring', bounce: 0.2 }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 
-                       w-full max-w-md z-50"
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 pointer-events-none"
           >
-            <div className="bg-white dark:bg-obsidian-900 rounded-3xl p-8 mx-4 shadow-2xl
+            <div className="w-full max-w-md pointer-events-auto bg-white dark:bg-obsidian-900 rounded-3xl p-8 shadow-2xl
                           border border-obsidian-200 dark:border-obsidian-800">
               {/* Header */}
               <div className="flex items-center justify-between mb-6">
